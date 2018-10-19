@@ -1,0 +1,358 @@
+/**
+ * Убийственный css нашего сайта
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i&subset=cyrillic,latin-ext,vietnamese');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+body
+{
+	font-family: "Verdana", "Open Sans", sans-serif;
+	margin-left: 300px;
+}
+h1, h2, h3, h4, h5, h6
+{
+	font-family: "Fira Sans", sans-serif;
+}
+#status
+{
+	margin:10px;
+	padding:10px;
+	position: fixed;
+	right:10px;
+	top:10px;
+	z-index: 100500;
+}
+a {
+	color:#330;
+}
+a:hover
+{
+	color:#699;
+}
+.statusBlock
+{
+	margin:10px;
+	padding:10px;
+	border-radius:1px;
+	color: #0071ff;
+	background-color: #8ac5ff;
+	display: none;
+}
+.error
+{
+	color: #db2a19;
+	background: #ffb39d;
+}
+.success
+{
+	color: #008000;
+	background: #9eff86;
+}
+form > div
+{
+	margin:10px;
+}
+#mainMenu
+{
+	margin: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 250px;
+	height: 100%;
+	background: whitesmoke;
+	overflow: auto;
+	z-index: 249;
+}
+#mainMenu > li
+{
+	list-style: none;
+	/* 	display: inline-block; */
+	margin:15px;
+	vertical-align: middle;
+	font-weight: bold;
+}
+/*#mainMenu > li::before, #mainMenu > li::after*/
+/*{*/
+/*color:gray;*/
+/*font-size: 80%;*/
+/*vertical-align: baseline;*/
+/*}*/
+/*#mainMenu > li::before*/
+/*{*/
+/*content: "[Упячка] ";*/
+/*}*/
+/*#mainMenu > li::after*/
+/*{*/
+/*content: " [/Упячка]";*/
+/*}*/
+#logo
+{
+	width:100px;
+	vertical-align: middle;
+}
+.irony
+{
+	color:#cc3333;
+	font-style: italic;
+}
+.big
+{
+	font-size:125%;
+}
+button, input[type='button'], input[type='submit']
+{
+	background:#FFCC00;
+	border:1px solid #FF9900;
+	font-family: "Playfair Display", serif;
+	margin: 10px;
+	font-size: 1em;
+	color: #000000;
+}
+textarea
+{
+	/*width: 668px;*/
+	/*height: 112px;*/
+	width: 500px; height: 150px;
+}
+input[type='text'], input[type='email'], input[type='password'], textarea
+{
+	font-family: "Verdana", "Open Sans", sans-serif;
+	font-size:1em;
+}
+#tagLine, #inventory
+{
+	font-size:70%;
+	/*margin-left: 300px;*/
+}
+.post, .comment
+{
+	margin: 7px;
+	padding:7px;
+}
+.comment {
+	margin-left: 5px;
+	padding-left: 20px;
+	/*border-left: #b3adb3 dotted 1px;*/
+}
+.post > *, .comment > *
+{
+	/**
+	 * ебать я охуенен
+	 */
+	/*margin: 10px;*/
+}
+.autograph
+{
+	color:gray;
+	font-size:80%;
+	background: #f2f2f2;
+	padding: 10px;
+	display: inline-block !important;
+	border-radius: 3px;
+}
+.username
+{
+	color:#810;
+	cursor: pointer;
+}
+#posts
+{
+	/*margin-left:10%;*/
+}
+#forms, #commentsPanel, .reply
+{
+	text-align: center !important;
+}
+.btnBkb, .btnBnb {
+	background-color: white;
+}
+.btnIrony, .irony
+{
+	color:#cc3333;
+	font-style: italic;
+}
+.btnBkb
+{
+	color:red;
+	border:red 1px solid;
+}
+.btnBnb
+{
+	color:cyan;
+	border:cyan 1px solid;
+}
+.bkb, .bigred, .bnb
+{
+	font-family:"Courier New", "Courier", monospace;
+	font-size:60px;
+	font-weight: bold;
+}
+.bkb, .bigred
+{
+	color:Red;
+}
+.bnb
+{
+	color:cyan;
+}
+.pages > table > tbody > tr > td > a
+{
+	text-decoration: none;
+	padding:4px;
+	margin: 5px;
+}
+.pages > table > tbody > tr > td > a:hover
+{
+	background-color: #810;
+	color:white
+}
+.pages {
+	overflow: auto;
+	padding: 20px;
+}
+.activePage
+{
+	padding:4px;
+	background:#333;
+	color:white;
+}
+#toggleMenu {
+	display: inline-block;
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	z-index: 250;
+	margin: 10px;
+	cursor: pointer;
+	width: 30px;
+}
+/*#kote*/
+/*{*/
+	/*position: fixed;*/
+	/**/
+/*}*/
+#viewImage
+{
+	position:fixed;
+	left: 50%;
+	right: 25%;
+}
+.comment > * > .text, .post > * > .text, .post > * .text
+{
+	overflow: auto !important;
+}
+.moderate
+{
+	display: inline-block;
+	padding-bottom: 10px;
+}
+.moderate > button, .closeVotes
+{
+	color:gray;
+	background: none;
+	border: 0;
+	cursor:pointer;
+	opacity: 0.7;
+	margin: 1px;
+}
+.moderate > button:hover
+{
+	opacity: 1;
+}
+thead {
+	font-weight: bold;
+}
+#modlog > tbody > tr > td,#modlog > thead > tr > td, #reports > #list > thead > tr > td, #reports > #list > tbody > tr > td
+{
+	padding:5px;
+}
+#reports > #list > tbody > tr > td > p {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+#mainMenu > li > a
+{
+	text-decoration: none;
+}
+hr {
+	border: 0.5px solid gray;
+	opacity: 0.5;
+}
+/**
+ * best hosting fix
+ */
+.cbalink
+{
+	display:none;
+}
+.presidentLink
+{
+	font-size: 50%;
+}
+details {
+	text-align: left;
+}
+.inviteWarning {
+	font-weight: bold;
+}
+#editor > button {
+	font-size: 90%;
+	margin:3px;
+}
+#editor > .link {
+	color: blue;
+}
+.commentContent {
+    border-radius: 3px;
+    border: gainsboro 1px solid;
+    box-shadow: 0 0 10px 0 gainsboro;
+	width: max-content;
+	width: -moz-max-content;
+    padding: 10px;
+	max-width: 100%;
+}
+.firefoxRulezzz {
+	font-weight: bold;
+	margin: 10px;
+}
+.post > .text {
+	overflow: auto;
+}
+.karma {
+	display: inline-block;
+	font-size: 80%;
+}
+.karma > button {
+	border: none;
+	background: none;
+	margin: 0;
+	cursor: pointer;
+}
+.karma > .count {
+	cursor: pointer;
+}
+.karma > .plus {
+	color: forestgreen;
+}
+.karma > .minus {
+	color: #db2a19;
+	-moz-transform: scale(-1, 1);
+	-webkit-transform: scale(-1, 1);
+	-o-transform: scale(-1, 1);
+	transform: scale(-1, 1);
+	filter: FlipH;
+	-ms-filter: "FlipH";
+}
+.votes {
+	display: none;
+}
+.post.gold > .autograph {
+	background: #ffecb4;
+}
+#invites > ul > li > input {
+	min-width: 600px;
+}
