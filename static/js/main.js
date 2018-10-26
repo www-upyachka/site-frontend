@@ -99,6 +99,7 @@ var up4k = {
 	"checkLogin": function() {
 		$.ajax({
 			"url": this.config.apiUrl,
+			"type": "POST",
 			"data": {
 				"method": "user.info",
 				"access_token": getCookie("access_token"),
@@ -129,6 +130,7 @@ var up4k = {
 			"delete": function(id) {
 				$.ajax({
 					"url": up4k.config.apiUrl,
+					"type": "POST",
 					"data": {
 						"method": "post.delete",
 						"id": id,
@@ -152,6 +154,7 @@ var up4k = {
 				var postWrapper = $(`#post-${id} > .text`);
 				$.ajax({
 					"url": up4k.config.apiUrl,
+					"type": "POST",
 					"data": {
 						"method": "post.info",
 						"id": id,
@@ -180,11 +183,13 @@ var up4k = {
 							$.ajax({
 								"url": up4k.config.apiUrl,
 								"data": formData,
+								"type": "POST",
 								"success": function(data) {
 									if (data.success) {
 										up4k.success(data.success);
 										$.ajax({
 											"url": up4k.config.apiUrl,
+											"type": "POST",
 											"data": {
 												"method": "post.info",
 												"id": id,
@@ -224,6 +229,7 @@ var up4k = {
 				var reason = prompt('Введите причину своего негодования');
 				$.ajax({
 					"url": up4k.config.apiUrl,
+					"type": "POST",
 					"data": {
 						"access_token": getCookie('access_token'),
 						"content_id": id,
@@ -244,6 +250,7 @@ var up4k = {
 			"karmaView": function (id) {
 				$.ajax({
 					"url": up4k.config.apiUrl,
+					"type": "POST",
 					"data": {
 						"method": "karma.onPost",
 						"post_id": id,
@@ -262,6 +269,7 @@ var up4k = {
 			"karmaPlus": function (id) {
 				$.ajax({
 					"url": up4k.config.apiUrl,
+					"type": "POST",
 					"data": {
 						"method": "karma.set",
 						"access_token": getCookie('access_token'),
@@ -282,6 +290,7 @@ var up4k = {
 			"karmaMinus": function (id) {
 				$.ajax({
 					"url": up4k.config.apiUrl,
+					"type": "POST",
 					"data": {
 						"method": "karma.set",
 						"access_token": getCookie('access_token'),
@@ -302,6 +311,7 @@ var up4k = {
 			"karmaList": function (id) {
 				$.ajax({
 					"url": up4k.config.apiUrl,
+					"type": "POST",
 					"data": {
 						"method": "karma.onPost",
 						"post_id": id,
@@ -337,6 +347,7 @@ var up4k = {
 				};
 				$.ajax({
 					"url": up4k.config.apiUrl,
+					"type": "POST",
 					"data": params,
 					"success": function(data) {
 						if (data.success) {
@@ -354,6 +365,7 @@ var up4k = {
 			"edit": function(id) {
 				$.ajax({
 					"url": up4k.config.apiUrl,
+					"type": "POST",
 					"data": {
 						"id": id,
 						"method": "comment.info",
@@ -372,6 +384,7 @@ var up4k = {
 								$.ajax({
 									"url": up4k.config.apiUrl,
 									"data": params,
+									"type": "POST",
 									"success": function(data) {
 										if (data.success) {
 											up4k.success(data.success)
@@ -380,6 +393,7 @@ var up4k = {
 										}
 										$.ajax({
 											"url": up4k.config.apiUrl,
+											"type": "POST",
 											"data": {
 												"id": commentInfo.id,
 												"method": "comment.info",
@@ -419,6 +433,7 @@ var up4k = {
 				var reason = prompt('Введите причину вашего негодования');
 				$.ajax({
 					"url": up4k.config.apiUrl,
+					"type": "POST",
 					"data": {
 						"access_token": getCookie('access_token'),
 						"content_id": id,
@@ -439,6 +454,7 @@ var up4k = {
 			"karmaView": function (id) {
 				$.ajax({
 					"url": up4k.config.apiUrl,
+					"type": "POST",
 					"data": {
 						"method": "karma.onComment",
 						"access_token": getCookie('access_token'),
@@ -457,6 +473,7 @@ var up4k = {
 			"karmaPlus": function (id) {
 				$.ajax({
 					"url": up4k.config.apiUrl,
+					"type": "POST",
 					"data": {
 						"method": "karma.set",
 						"access_token": getCookie('access_token'),
@@ -477,6 +494,7 @@ var up4k = {
 			"karmaMinus": function (id) {
 				$.ajax({
 					"url": up4k.config.apiUrl,
+					"type": "POST",
 					"data": {
 						"method": "karma.set",
 						"access_token": getCookie('access_token'),
@@ -497,6 +515,7 @@ var up4k = {
 			"karmaList": function (id) {
 				$.ajax({
 					"url": up4k.config.apiUrl,
+					"type": "POST",
 					"data": {
 						"method": "karma.onComment",
 						"comment_id": id,
@@ -527,6 +546,7 @@ var up4k = {
 			"pardon": function (id) {
 				$.ajax({
 					"url": up4k.config.apiUrl,
+					"type": "POST",
 					"data": {
 						"method": "ban.pardon",
 						"id": id,
@@ -537,6 +557,7 @@ var up4k = {
 							up4k.success(data.success);
 							$.ajax({
 								"url": up4k.config.apiUrl,
+								"type": "POST",
 								"data": {
 									"method": "ban.infoById",
 									"id": id,
@@ -562,6 +583,7 @@ var up4k = {
 				var banList = $("#banList");
 				$.ajax({
 					"url": up4k.config.apiUrl,
+					"type": "POST",
 					"data": {
 						"sub": sub,
 						"method": "ban.listInSub",
@@ -601,6 +623,7 @@ var up4k = {
 			"moderators": function (sub) {
 				$.ajax({
 					"url": up4k.config.apiUrl,
+					"type": "POST",
 					"data": {
 						"method": "sub.moderators",
 						"address": sub,
@@ -629,6 +652,7 @@ var up4k = {
 								var params = $(this).serializeObject();
 								$.ajax({
 									"url": up4k.config.apiUrl,
+									"type": "POST",
 									"data": params,
 									"success": function () {
 										if(data.success) {
@@ -834,6 +858,7 @@ var up4k = {
 					params.method = "user.register";
 					$.ajax({
 						"url": window.up4k.config.apiUrl,
+						"type": "POST",
 						"data": params,
 						"dataType": "json",
 						"success": function(data) {
@@ -873,6 +898,7 @@ var up4k = {
 						"url": window.up4k.config.apiUrl,
 						"data": params,
 						"dataType": "json",
+						"type": "POST",
 						"success": function(data) {
 							if (data.success) {
 								window.up4k.checkLogin();
@@ -937,6 +963,7 @@ var up4k = {
 						"url": window.up4k.config.apiUrl,
 						"data": params,
 						"dataType": "json",
+						"type": "POST",
 						"success": function(data) {
 							if (data.success) {
 								window.up4k.success(data.success);
@@ -964,6 +991,7 @@ var up4k = {
 					$.ajax({
 						"url": window.up4k.config.apiUrl,
 						"dataType": "json",
+						"type": "POST",
 						"data": {
 							"method": "sub.list",
 							"access_token": getCookie("access_token"),
@@ -991,6 +1019,7 @@ var up4k = {
 						"url": window.up4k.config.apiUrl,
 						"data": `method=sub.info&address=${window.up4kURL[1]}&access_token=${getCookie("access_token")}`,
 						"dataType": "json",
+						"type": "POST",
 						"success": function(data) {
 							if (window.up4kURL[2]) {
 								window.postsPage = window.up4kURL[2]
@@ -1029,6 +1058,7 @@ var up4k = {
 									</div>`);
 									$.ajax({
 										"url": window.up4k.config.apiUrl,
+										"type": "POST",
 										"data": {
 											"method": "post.totalPagesInSub",
 											"sub": data.success.address,
@@ -1062,6 +1092,7 @@ var up4k = {
 										"url": window.up4k.config.apiUrl,
 										"data": `method=post.listInSub&sub=${data.success.address}&page=${window.postsPage}&access_token=${getCookie("access_token")}`,
 										"dataType": "json",
+										"type": "POST",
 										"beforeSend": function() {
 											window.up4k.status("Загружаю епта...", "loading", !0)
 										},
@@ -1101,6 +1132,7 @@ var up4k = {
 									$.ajax({
 										"url": window.up4k.config.apiUrl,
 										"data": params,
+										"type": "POST",
 										"success": function(data) {
 											if (data.error) {
 												if (data.error.ban) {
@@ -1156,6 +1188,7 @@ var up4k = {
 			} else {
 				$.ajax({
 					"url": window.up4k.config.apiUrl,
+					"type": "POST",
 					"data": {
 						"method": "post.info",
 						"id": window.up4kURL[1],
@@ -1183,6 +1216,7 @@ var up4k = {
 							function loadParentComments(commentId) {
 								$.ajax({
 									"url": window.up4k.config.apiUrl,
+									"type": "POST",
 									"data": {
 										"method": "comment.parentComments",
 										"comment_id": commentId,
@@ -1218,6 +1252,7 @@ var up4k = {
 								window.parentComment = parentComment;
 								$.ajax({
 									"url": window.up4k.config.apiUrl,
+									"type": "POST",
 									"data": {
 										"method": "comment.listUnderPost",
 										"post_id": window.up4kURL[1],
@@ -1317,6 +1352,7 @@ var up4k = {
 								$.ajax({
 									"url": window.up4k.config.apiUrl,
 									"data": commentFormData,
+									"type": "POST",
 									"success": function(data) {
 										if (data.success) {
 											window.up4k.success(data.success);
@@ -1352,6 +1388,7 @@ var up4k = {
 			$("#freeInvites").append("<ul></ul>");
 			$.ajax({
 				"url": window.up4k.config.apiUrl,
+				"type": "POST",
 				"data": {
 					"method": "invite.freeList",
 				},
@@ -1371,6 +1408,7 @@ var up4k = {
 				$("#invites").append(`<div class="inviteWarning"><p>${userInfo.login}, помни, что только ты ответственен за каждого приглашенного. Не раздавай инвайты кому попало.</p></div><ul></ul>`);
 				$.ajax({
 					"url": window.up4k.config.apiUrl,
+					"type": "POST",
 					"data": {
 						"method": "invite.getMyList",
 						"access_token": getCookie("access_token"),
@@ -1395,6 +1433,7 @@ var up4k = {
 			$("#up4k").html(`<div id="modlogPage"></div>`);
 			$.ajax({
 				"url": up4k.config.apiUrl,
+				"type": "POST",
 				"data": {
 					"method": "modlog.read",
 					"access_token": getCookie("access_token"),
@@ -1426,6 +1465,7 @@ var up4k = {
 			if (window.isLogged) {
 				$.ajax({
 					"url": window.up4k.config.apiUrl,
+					"type": "POST",
 					"data": {
 						"method": "invite.get",
 						"access_token": getCookie("access_token"),
@@ -1456,6 +1496,7 @@ var up4k = {
 				$("#up4k").append(`<div id="postVersions"></div>`);
 				$.ajax({
 					"url": up4k.config.apiUrl,
+					"type": "POST",
 					"data": {
 						"method": "post.versions",
 						"id": up4kURL[1],
@@ -1501,6 +1542,7 @@ var up4k = {
 				$("#up4k").append(`<div id="commentVersions"></div>`);
 				$.ajax({
 					"url": up4k.config.apiUrl,
+					"type": "POST",
 					"data": {
 						"id": up4kURL[1],
 						"method": "comment.versions",
@@ -1558,6 +1600,7 @@ var up4k = {
 					 */
 					$.ajax({
 						"url": up4k.config.apiUrl,
+						"type": "POST",
 						"data": {
 							"method": "sub.inMyManage",
 							"access_token": getCookie("access_token")
@@ -1591,6 +1634,7 @@ var up4k = {
 					 */
 					$.ajax({
 						"url": up4k.config.apiUrl,
+						"type": "POST",
 						"data": {
 							"method": "sub.info",
 							"address": up4kURL[1],
@@ -1632,6 +1676,7 @@ var up4k = {
 											var params = $(this).serializeObject();
 											$.ajax({
 												"url": up4k.config.apiUrl,
+												"type": "POST",
 												"data": params,
 												"success": function (data) {
 													if(data.success) {
@@ -1675,6 +1720,7 @@ var up4k = {
 											var params = $(this).serializeObject();
 											$.ajax({
 												"url": up4k.config.apiUrl,
+												"type": "POST",
 												"data": params,
 												"success": function (data) {
 													if(data.success) {
@@ -1709,6 +1755,7 @@ var up4k = {
 											var params = $(this).serializeObject();
 											$.ajax({
 												"url": up4k.config.apiUrl,
+												"type": "POST",
 												"data": params,
 												"success": function (data) {
 													if(data.success) {
@@ -1760,6 +1807,7 @@ var up4k = {
 										}
 										$.ajax({
 											"url": up4k.config.apiUrl,
+											"type": "POST",
 											"data": {
 												"access_token": getCookie('access_token'),
 												"sub": up4kURL[1],
@@ -1814,6 +1862,7 @@ var up4k = {
 				params.method = "sandbox.test";
 				$.ajax({
 					"url": up4k.config.apiUrl,
+					"type": "POST",
 					"data": params,
 					"success": function (data) {
 						if(data.success) {
@@ -1908,6 +1957,7 @@ var up4k = {
 								</div>`);
 			$.ajax({
 				"url": up4k.config.apiUrl,
+				"type": "POST",
 				"data": {
 					"username": userInfo.login,
 					"method": "karma.ofUser",
@@ -1982,6 +2032,7 @@ up4k.pages.comment = function () {
 	if (up4kURL[1]) {
 		$.ajax({
 			"url": up4k.config.apiUrl,
+			"type": "POST",
 			"data": {
 				"method": "comment.info",
 				"access_token": getCookie("access_token"),
