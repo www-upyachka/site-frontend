@@ -378,7 +378,7 @@ var up4k = {
 							editForm = editForm({
 								"comment": commentInfo
 							});
-							$(`#comment-${data.success.id} > .text`).html(editForm);
+							$(`#comment-${data.success.id} > .commentContent > .text`).html(editForm);
 							$(`#editComment-${data.success.id}`).submit(function() {
 								var params = $(this).serializeObject();
 								$.ajax({
@@ -401,7 +401,7 @@ var up4k = {
 											},
 											"success": function(data) {
 												if (data.success) {
-													$(`#comment-${commentInfo.id} > .text`).html(data.success.comment_text)
+													$(`#comment-${commentInfo.id} > .commentContent > .text`).html(data.success.comment_text)
 												} else {
 													up4k.error(data.error)
 												}
@@ -761,7 +761,7 @@ var up4k = {
 			"ВИДИТЕ, <%=username%>, ТЕЛЕВИЗОР РАБОТАЕТ!!!11",
 			"Ебизнес накрылся полным ебизнесом, <%=username%>",
 		],
-		"post": `<div class="post <% if (post.is_invited != 0) { %>gold<% } %>" id="post-<%=post.id%>">
+		"post": `<div class="post <% if (post.is_invited && post.is_invited != 0) { %>gold<% } %>" id="post-<%=post.id%>">
 	<div class="text"><%=post.post_text%></div>
 	<% if (misc.moderateAvailable) { %>
 	<div class="moderate">
