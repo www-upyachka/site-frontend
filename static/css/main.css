@@ -356,3 +356,6 @@ details {
 #invites > ul > li > input {
 	min-width: 600px;
 }
+.isPinned {
+	color:black;
+}

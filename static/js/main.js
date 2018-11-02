@@ -336,7 +336,48 @@ var up4k = {
 						}
 					}
 				});
-			}
+			},
+			"pin": function (id) {
+				$.ajax({
+					url: up4k.config.apiUrl,
+					data: {
+						method: "post.info",
+						id: id,
+						access_token: getCookie('access_token'),
+					},
+					success: function (data) {
+						if(data.success) {
+							var post = data.success;
+							var method;
+							if(post.is_pinned == 0) {
+								method = 'post.pin'
+							}
+							else {
+								method = 'post.unpin'
+							}
+							$.ajax({
+								url: up4k.config.apiUrl,
+								data: {
+									method: method,
+									id: id,
+									access_token: getCookie('access_token'),
+								},
+								success: function (data) {
+									if(data.success) {
+										up4k.success(data.success);
+									}
+									else {
+										up4k.error(data.error);
+									}
+								}
+							});
+						}
+						else {
+							up4k.error(data.error);
+						}
+					}
+				});
+			},
 		},
 		"comment": {
 			"delete": function(id) {
@@ -774,14 +815,19 @@ var up4k = {
 			<div class="votes"><button class="closeVotes" title="Закрыть" onclick="$(this).parent().css('display', 'none')"><i class="fa fa-close"></i></button> <ul class="list"></ul></div>
 		</div>
 		<% } %>
+		<% post.pinPrefix = '';
+		if(post.is_pinned != 0) {
+			 post.pinPrefix = 'un';
+		}%>
 		<button class="delete" onclick="up4k.modules.post.delete(<%=post.id%>)" title='Удалить'><i class="fa fa-close"></i></button>
 		<button class="edit" onclick="up4k.modules.post.edit(<%=post.id%>)" title='Редактировать'><i class="fa fa-edit"></i></button>
 		<button class="versions" onclick="up4k.modules.post.versions(<%=post.id%>)" title='Версии поста'><i class="fa fa-archive"></i></button>
 		<button class="report" onclick="up4k.modules.post.report(<%=post.id%>)" title='Репорт'><i class="fa fa-exclamation"></i></button>
+		<button class="<%-post.pinPrefix%>pin" onclick="up4k.modules.post.pin(<%=post.id%>)" title='<% if(post.is_pinned != 0) { %>Открепить<% } else { %>Закрепить<% } %>'><i class="fa fa-thumb-tack"></i></button>
 		<% } %>
 	</div>
 	<% } %>
-	<div class="autograph"><span class="username" onclick="window.up4k.mention($(this).html());"><%=post.author%></span> написал этот псто <%=date(window.up4k.config.dateFormat, post.create_time)%>, <% if(misc.idInLink) { %><a href="#comments/<%=post.id%>/"><% } %>#<%=post.id%><% if(misc.idInLink) { %></a><% } %><% if (misc.edition) { %>, отредактировал <%=post.editor%> <%=date(up4k.config.dateFormat, post.ver_time)%><% } %></div>
+	<div class="autograph"><% if(post.is_pinned != 0) { %> <span class="isPinned fa fa-thumb-tack"></span> <% } %><span class="username" onclick="window.up4k.mention($(this).html());"><%=post.author%></span> написал этот псто <%=date(window.up4k.config.dateFormat, post.create_time)%>, <% if(misc.idInLink) { %><a href="#comments/<%=post.id%>/"><% } %>#<%=post.id%><% if(misc.idInLink) { %></a><% } %><% if (misc.edition) { %>, отредактировал <%=post.editor%> <%=date(up4k.config.dateFormat, post.ver_time)%><% } %></div>
 </div>`,
 		"comment": `<div class="comment" id="comment-<%=comment.id%>" cid="<%=comment.id%>">
 						<div class='commentContent'>
