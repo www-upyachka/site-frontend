@@ -34,6 +34,7 @@
 	<script src="static/js/libs/lodash.min.js"></script>
 	<script src="static/js/libs/thirdparty.js"></script>
 	<script src="static/js/libs/editor.js"></script>
+	<script src="static/js/config.js"></script>
 	<script src="static/js/main.js"></script>
 </body>
 </html>

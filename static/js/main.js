@@ -10,12 +10,7 @@ try {
 var menuHidden = !1;
 var up4k = {
 	"viewImage": function() {},
-	"config": {
-		"siteUrl": "http://frontend.url",
-		"apiUrl": "http://api.url/",
-		"mainTitle": "Упячка",
-		"dateFormat": "d.m.Y, H:i",
-	},
+	"config": config,
 	"mention": function(username) {
 		$("textarea#text").append(`*${username},* `);
 		$("html,body").animate({
